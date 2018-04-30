@@ -1,3 +1,5 @@
+package server;
+
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import com.sun.jersey.api.container.httpserver.HttpServerFactory;

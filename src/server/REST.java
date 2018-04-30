@@ -1,7 +1,9 @@
+package server;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.Statement; 
+import java.sql.Statement;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -19,17 +21,17 @@ import com.google.gson.Gson;
 @Produces( MediaType.APPLICATION_JSON  )
 public class REST
 {
-  @GET 
+  @GET
   public Response message()
   {
-	Package parcel = new Package();
+	Parcel parcel = new Parcel();
 	parcel.length = 0;
 	parcel.width = 0;
 	parcel.depth = 7;
 	parcel.cat = "penis";
 	Gson gs = new Gson();
     //return parcel.toString();
-	return Response.ok(gs.toJson(parcel, Package.class)).header("Access-Control-Allow-Origin", "*")
+	return Response.ok(gs.toJson(parcel, Parcel.class)).header("Access-Control-Allow-Origin", "*")
 		      .header("Access-Control-Allow-Credentials", "true")
 		      .header("Access-Control-Allow-Headers",
 		         "origin, content-type, accept, authorization")
@@ -40,42 +42,29 @@ public class REST
   public Response size(String json)
   {
 	  Gson gs = new Gson();
-	  Package parcel = gs.fromJson(json,Package.class);
+	  Parcel parcel = gs.fromJson(json,Parcel.class);
 	  if(parcel.length>parcel.width&&parcel.length>parcel.depth)
 	  {
-		  
+
 	  }
 	  else if(parcel.width>parcel.length&&parcel.width>parcel.depth)
 	  {
-		  int tmp = parcel.length;
+		  double tmp = parcel.length;
 		  parcel.length=parcel.width;
 		  parcel.width=tmp;
 	  }
 	  else if(parcel.depth>parcel.length&&parcel.depth>parcel.width)
 	  {
-		  int tmp = parcel.length;
+		  double tmp = parcel.length;
 		  parcel.length=parcel.depth;
 		  parcel.depth=tmp;
 	  }
 	  double gurt = parcel.length+2*parcel.width+2*parcel.depth;
-	  try
-	  {  
-	    Class.forName("com.mysql.jdbc.Driver");  
-	    Connection con=DriverManager.getConnection(  
-	    "jdbc:mysql://localhost:3306/ParcelService","reader","penis");   
-	    Statement stmt=con.createStatement();  
-	    ResultSet rs=stmt.executeQuery("select distinct size from ParcelSize where min <= " + gurt + " and max >= " + gurt);  
-	    rs.next();
-	    String size =rs.getString(1);  
-	    con.close();
-	    parcel.cat=size;
-	  }
-	  catch(Exception e)
-	  {
-	    System.out.println(e);
-	  } 
+    DBConn con = new DBConn();
+	  parcel.cat=con.getSize(gurt);
+
 	  System.out.println("Send package: "+parcel);
-	  return Response.status(200).entity(gs.toJson(parcel, Package.class)).header("Access-Control-Allow-Origin", "*")
+	  return Response.status(200).entity(gs.toJson(parcel, Parcel.class)).header("Access-Control-Allow-Origin", "*")
 		      .header("Access-Control-Allow-Credentials", "true")
 		      .header("Access-Control-Allow-Headers",
 		         "origin, content-type, accept, authorization")
@@ -90,5 +79,5 @@ public class REST
       .header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
       .header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
   }
-  
+
 }
