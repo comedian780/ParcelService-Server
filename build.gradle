@@ -68,4 +68,12 @@ jar
 {
 	baseName = "ParSer-Server"
 	version = "1.0"
+	manifest
+	{
+		attributes "Main-Class":"server.Server"
+	}
+	from
+	{
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
 }
