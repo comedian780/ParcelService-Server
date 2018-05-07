@@ -1,5 +1,4 @@
 node {
-   def mvnHome
    stage('Get ParcelService-Server') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/sabertoothx6/ParcelService-Server.git'
@@ -19,15 +18,15 @@ node {
       if(isUnix())
       {
           //Remove the previous build image
-          sh "docker rmi ParcelService-Server"
-          //Build new container with image ParcelService-Server
-          sh "docker build -t ParcelService-Server ."
+          sh "docker rmi parcelservice-server"
+          //Build new container with image parcelservice-server
+          sh "docker build -t parcelservice-server ."
       }
       else
       {
           //Remove the previous build image
-          bat "docker rmi ParcelService-Server"
-          bat "docker build -t ParcelService-Server ."
+          bat "docker rmi parcelservice-server"
+          bat "docker build -t parcelservice-server ."
       }
 
    }
