@@ -18,10 +18,10 @@ node {
       if(isUnix())
       {
           IMAGE_EXISTS = sh(
-          script: "docker images -q parcelservice-server"
-          returnStatus : true)
+          script: "docker images -q parcelservice-server",
+          returnStatus : true) !=""
           //Remove the previous build image
-          if(IMAGE_EXISTS != "")
+          if(IMAGE_EXISTS)
           {
               sh "docker rmi parcelservice-server"
           }
