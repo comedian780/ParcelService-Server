@@ -18,7 +18,10 @@ node {
       if(isUnix())
       {
           //Remove the previous build image
-          sh "docker rmi parcelservice-server"
+          if(sh "docker images -q parcelservice-server" != "")
+          {
+              sh "docker rmi parcelservice-server"
+          }
           //Build new container with image parcelservice-server
           sh "docker build -t parcelservice-server ."
       }
