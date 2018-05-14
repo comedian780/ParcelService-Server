@@ -24,7 +24,6 @@ node {
           //Remove the previous build image if it was build before
           if(IMAGE_EXISTS!="")
           {
-              sh "docker rm -f parcelservice-server"
               sh "docker rmi -f parcelservice-server"
           }
           //Build new container with image parcelservice-server
@@ -40,6 +39,6 @@ node {
    }
    /*stage('Run ParcelService-Server')
    {
-      sh "docker run -d -p 8443:8443 --name=test_rest parcelservice-server java -jar ParSer-Server-1.0.jar"
+      sh "docker run -d -p 8443:8443 --name=rest parcelservice-server java -jar ParSer-Server-1.0.jar"
    }*/
 }
