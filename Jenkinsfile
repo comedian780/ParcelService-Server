@@ -20,9 +20,9 @@ node {
           //Create Variable that holds the info if docker image exists
           IMAGE_EXISTS = sh(
           script: "docker images -q parcelservice-server",
-          returnStatus : true) !=""
+          returnStatus : true)
           //Remove the previous build image if it was build before
-          if(IMAGE_EXISTS)
+          if(IMAGE_EXISTS!="")
           {
               sh "docker rm -f parcelservice-server"
               sh "docker rmi -f parcelservice-server"
