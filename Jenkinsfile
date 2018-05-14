@@ -24,7 +24,8 @@ node {
           //Remove the previous build image if it was build before
           if(IMAGE_EXISTS)
           {
-              sh "docker rmi parcelservice-server"
+              sh "docker rm -f parcelservice-server"
+              sh "docker rmi -f parcelservice-server"
           }
           //Build new container with image parcelservice-server
           sh "docker build -t parcelservice-server ."
