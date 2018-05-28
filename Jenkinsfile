@@ -37,6 +37,11 @@ node {
       }
 
    }
+   stage('Deploy Image to Asset-Server')
+   {
+      sh "docker save parcelservice-frontend > server.tar"
+      sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no server.tar vagrant@192.168.50.100:/home/vagrant/images"
+   }
    /*stage('Run ParcelService-Server')
    {
       sh "docker run -d -p 8443:8443 --name=rest parcelservice-server java -jar ParSer-Server-1.0.jar"
