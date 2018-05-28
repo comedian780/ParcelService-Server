@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   #config.vm.synced_folder "vagrant/www/", "/var/www"
 
   config.vm.provider "virtualbox" do |vb|
-  vb.gui = true
+  vb.gui = false
   vb.name="testemonial-server"
   vb.memory = "4096"
   end
@@ -25,8 +25,9 @@ Vagrant.configure(2) do |config|
      sudo docker load < frontend.tar
      sudo docker load < server.tar
      sudo docker load < database.tar
-     rm parcelsize.tar
-     rm parcelwebserver.tar
+     rm frontend.tar
+     rm server.tar
+     rm database.tar
    SHELL
 
    config.vm.provision "docker" do |d|
