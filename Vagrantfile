@@ -6,7 +6,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |vb|
   vb.gui = true
-  vb.name="test-server"
+  vb.name="testemonial-server"
   vb.memory = "4096"
   end
 
@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
      sudo usermod -aG docker $USER
-     sudo docker network create parcelservice_nw
+     sudo docker network create ParcelService
    SHELL
 
    config.vm.provision "shell", run: "always", inline: <<-SHELL
