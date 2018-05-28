@@ -10,6 +10,11 @@ Vagrant.configure(2) do |config|
   vb.memory = "4096"
   end
 
+  config.vm.provision "shell", run: "always", inline: <<-SHELL
+    sudo apt-get update
+    sudo apt-get upgrade -y
+    SHELL
+
   config.vm.provision "docker" do |d|
   end
 
