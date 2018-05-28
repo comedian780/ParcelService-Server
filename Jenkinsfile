@@ -39,7 +39,7 @@ node {
    }
    stage('Deploy Image to Asset-Server')
    {
-      sh "docker save parcelservice-frontend > server.tar"
+      sh "docker save parcelservice-server > server.tar"
       sh "sshpass -p 'vagrant' scp -o StrictHostKeyChecking=no server.tar vagrant@192.168.56.100:/home/vagrant/images"
    }
    /*stage('Build and Start Testserver')
