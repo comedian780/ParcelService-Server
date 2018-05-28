@@ -19,20 +19,20 @@ Vagrant.configure(2) do |config|
    SHELL
 
    config.vm.provision "shell", run: "always", inline: <<-SHELL
-     wget 192.168.56.100/images/frontend.tar
-     wget http://192.168.56.100/images/server.tar
-     wget http://192.168.56.100/images/database.tar
-     sudo docker load < frontend.tar
-     sudo docker load < server.tar
-     sudo docker load < database.tar
-     rm frontend.tar
-     rm server.tar
-     rm database.tar
+   wget 192.168.56.100/images/frontend.tar
+   wget 192.168.56.100/images/server.tar
+   wget 192.168.56.100/images/database.tar
+   sudo docker load < frontend.tar
+   sudo docker load < server.tar
+   sudo docker load < database.tar
+   rm frontend.tar
+   rm server.tar
+   rm database.tar
    SHELL
 
    config.vm.provision "docker" do |d|
-     d.run "parcelservice-frontend", args: "-d -p 80:80 --network=ParcelService --name=webserver"
-     d.run "parcelservice-server", args: "-d -p 8443:8443 --network=ParcelService --name=rest java -jar ParSer-Server-1.0.jar"
-     d.run "parcelservice-database", args: "-d -p 3306:3306 --network=ParcelService --name=db"
+   d.run "parcelservice-frontend", args: "-d -p 80:80 --network=ParcelService --name=webserver"
+   d.run "parcelservice-server", args: "-d -p 8443:8443 --network=ParcelService --name=rest java -jar ParSer-Server-1.0.jar"
+   d.run "parcelservice-database", args: "-d -p 3306:3306 --network=ParcelService --name=db"
    end
 end
