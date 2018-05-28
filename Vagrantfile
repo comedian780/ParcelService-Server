@@ -19,9 +19,9 @@ Vagrant.configure(2) do |config|
    SHELL
 
    config.vm.provision "shell", run: "always", inline: <<-SHELL
-    curl -o frontend.tar 192.168.56.100/images/frontend.tar
-    curl -o server.tar 192.168.56.100/images/server.tar
-    curl -o database.tar 192.168.56.100/images/database.tar
+    curl 192.168.56.100/images/frontend.tar
+    curl 192.168.56.100/images/server.tar
+    curl 192.168.56.100/images/database.tar
      sudo docker load < frontend.tar
      sudo docker load < server.tar
      sudo docker load < database.tar
