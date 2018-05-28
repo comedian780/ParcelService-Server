@@ -1,7 +1,7 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.network "forwarded_port", guest: 80, host: 8085
-  config.vm.network "private_network", ip: "192.168.50.101",:name => 'vboxnet0',:adapter => 2
+  config.vm.network "private_network", ip: "192.168.56.101",:name => 'vboxnet0',:adapter => 2
   #config.vm.synced_folder "vagrant/www/", "/var/www"
 
   config.vm.provider "virtualbox" do |vb|
