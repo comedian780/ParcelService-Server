@@ -9,7 +9,7 @@ r = requests.post("http://" + str(vm_url) + ":8443/parcel/size", json={"length":
 
 
 # Parse response data
-size = r.json()['size']
+size = r.json()['cat']
 
 if(str(size) == "XS"):
     exit(0)
