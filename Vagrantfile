@@ -36,8 +36,9 @@ Vagrant.configure(2) do |config|
    SHELL
 
    config.vm.provision "shell", run: "always", inline: <<-SHELL
-   docker run parcelservice-frontend --host=webserver -d -p 80:80 --network=ParcelService --name=webserver
-   docker run parcelservice-server --host=rest -d -p 8443:8443 --network=ParcelService --name=rest java -jar ParSer-Server-1.0.jar
-   docker run parcelservice-database --host=db -d -p 3306:3306 --network=ParcelService --name=db
+   docker network create --driver bridge ParcelService
+   docker run parcelservice-frontend -d -p 80:80 --network=ParcelService --name=webserver
+   docker run parcelservice-server -d -p 8443:8443 --network=ParcelService --name=rest java -jar ParSer-Server-1.0.jar
+   docker run parcelservice-database -d -p 3306:3306 --network=ParcelService --name=db
    SHELL
 end
