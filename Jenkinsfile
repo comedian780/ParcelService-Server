@@ -50,7 +50,7 @@ node {
    {
     if(isUnix())
     {
-      //sh "docker-machine start parcel-test"
+      sh "vagrant up"
       sh "python integration.py"
       //sh "docker-machine stop parcel-test"
     }
@@ -59,7 +59,7 @@ node {
   {
    if(isUnix())
    {
-     //sh "docker-machine start parcel-test"
+     sh "vagrant up"
      sh "python uat.py"
      //sh "docker-machine stop parcel-test"
    }
