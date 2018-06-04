@@ -9,3 +9,6 @@ WORKDIR Server
 
 #Copy Server.jar to target location
 COPY ./build/libs/. /Server
+
+#Show me what you got
+EXPOSE 8443
