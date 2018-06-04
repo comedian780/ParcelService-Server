@@ -33,12 +33,12 @@ Vagrant.configure(2) do |config|
    rm frontend.tar
    rm server.tar
    rm database.tar
+   docker network create --driver bridge ParcelService
    SHELL
 
-   config.vm.provision "shell", run: "always", inline: <<-SHELL
-   docker network create --driver bridge ParcelService
-   docker run parcelservice-frontend -d -p 80:80 --network=ParcelService --name=webserver
-   docker run parcelservice-server -d -p 8443:8443 --network=ParcelService --name=rest java -jar ParSer-Server-1.0.jar
-   docker run parcelservice-database -d -p 3306:3306 --network=ParcelService --name=db
-   SHELL
+   config.vm.provision "docker" do |d|
+   d.run "parcelservice-frontend", args: "-d -p 80:80 --network=ParcelService --name=webserver"
+   d.run "parcelservice-server", args: "-d -p 8443:8443 --network=ParcelService --name=rest java -jar ParSer-Server-1.0.jar"
+   d.run "parcelservice-database", args: "-d -p 3306:3306 --network=ParcelService --name=db"
+   end
 end
