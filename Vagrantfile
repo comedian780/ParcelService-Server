@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
      sudo usermod -aG docker $USER
-     sudo docker network create ParcelService
+     docker network create --driver bridge ParcelService
    SHELL
 
    config.vm.provision "shell", run: "always", inline: <<-SHELL
@@ -33,7 +33,6 @@ Vagrant.configure(2) do |config|
    rm frontend.tar
    rm server.tar
    rm database.tar
-   docker network create --driver bridge ParcelService
    SHELL
 
    config.vm.provision "docker" do |d|
