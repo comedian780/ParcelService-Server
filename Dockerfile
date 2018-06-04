@@ -12,3 +12,5 @@ COPY ./build/libs/. /Server
 
 #Show me what you got
 EXPOSE 8443
+
+CMD java -jar ParSer-Server-1.0.jar
