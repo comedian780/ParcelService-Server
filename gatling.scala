@@ -9,7 +9,7 @@ import io.gatling.jdbc.Predef._
 class RecordedSimulation extends Simulation {
 
 	val httpProtocol = http
-		.baseURL("http://192.168.56.101")
+		.baseURL("http://localhost")
 		.inferHtmlResources()
 		.acceptHeader("*/*")
 		.acceptEncodingHeader("gzip, deflate")
@@ -47,5 +47,5 @@ class RecordedSimulation extends Simulation {
 			.headers(headers_4)
 			.body(RawFileBody("RecordedSimulation_0004_request.txt"))))
 
-	setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+	setUp(scn.inject(atOnceUsers(100))).protocols(httpProtocol)
 }
