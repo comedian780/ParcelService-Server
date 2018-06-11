@@ -46,7 +46,7 @@ node {
    {
       sh "vagrant up"
    }
-   stage('Integration')
+   stage('Integration-Test')
    {
     if(isUnix())
     {
@@ -55,17 +55,14 @@ node {
       //sh "docker-machine stop parcel-test"
     }
   }
-  stage('UAT')
+  stage('User Acceptance Test')
   {
-   if(isUnix())
-   {
-     sh "vagrant up"
-     sh "python uat.py"
-     //sh "docker-machine stop parcel-test"
-   }
-}
-   /*stage('Run ParcelService-Server')
-   {
-      sh "docker run -d -p 8443:8443 --name=rest parcelservice-server java -jar ParSer-Server-1.0.jar"
-   }*/
+     if(isUnix())
+     {
+         sh "vagrant up"
+         sh "python uat.py"
+         //sh "docker-machine stop parcel-test"
+     }
+  }
+  stage('Performance-Test')
 }
