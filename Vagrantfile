@@ -6,7 +6,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |vb|
   vb.gui = false
-  vb.name="testemonial-server"
+  vb.name="testserver1"
   vb.memory = "4096"
   end
 
