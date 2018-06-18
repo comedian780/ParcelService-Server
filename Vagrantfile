@@ -40,7 +40,7 @@ Vagrant.configure(2) do |config|
 
    config.vm.provision "docker" do |d|
    d.run "parcelservice-database", args: "-d --restart always --network=ParcelService --name=db"
-   d.run "parcelservice-server", args: "-d --restart always --network=ParcelService --name=rest"
+   d.run "parcelservice-server", args: "-d --restart always --network=ParcelService --name=rest1"
    d.run "parcelservice-server", args: "-d --restart always --network=ParcelService --name=rest2"
    d.run "parcelservice-frontend", args: "-d -p 80:80 --restart always --network=ParcelService --name=webserver"
    d.run "parcelservice-proxy", args: "-d -p 8443:8443 --restart always --network=ParcelService --name=proxy"
