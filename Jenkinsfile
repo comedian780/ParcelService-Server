@@ -72,4 +72,9 @@ node {
   {
     input 'Build Working ?'
   }
+  post{
+    always{
+        gatlingArchive()
+    }
+  }
 }
