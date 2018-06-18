@@ -65,4 +65,8 @@ node {
      }
   }
   stage('Performance-Test')
+  stage('Manual User Test')
+  {
+    input 'Build Working ?'
+  }
 }
