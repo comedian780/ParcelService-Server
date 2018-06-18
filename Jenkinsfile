@@ -65,6 +65,9 @@ node {
      }
   }
   stage('Performance-Test')
+  {
+    sh "gradle gatlingRun"
+  }
   stage('Manual User Test')
   {
     input 'Build Working ?'

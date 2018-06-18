@@ -6,10 +6,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import io.gatling.jdbc.Predef._
 
-class RecordedSimulation extends Simulation {
+class SimpleResponse extends Simulation {
 
 	val httpProtocol = http
-		.baseURL("http://192.168.56.101:8443")
+		.baseURL("http://www.allgaeu-parcel-service.de:8443")
 		.inferHtmlResources()
 		.acceptHeader("*/*")
 		.acceptEncodingHeader("gzip, deflate")
@@ -27,8 +27,8 @@ class RecordedSimulation extends Simulation {
 		"Content-Type" -> "application/json;charset=utf-8",
 		"Origin" -> "http://localhost")
 
-    val uri1 = "http://192.168.56.100/js"
-    val uri2 = "http://192.168.56.101:8443/parcel/size"
+    val uri1 = "http://asset.allgaeu-parcel-service.de/js"
+    val uri2 = "http://www.allgaeu-parcel-service.de:8443/parcel/size"
 
 	val scn = scenario("RecordedSimulation")
 		.exec(http("request_0")
