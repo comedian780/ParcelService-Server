@@ -18,7 +18,7 @@ import server.*;
 class TestJunit {
 
 
-    /*@Test
+    @Test
     void packageTest() {
     	String expectedResult = "{ length: 25.0, width: 24.0, depth: 7.3, cat: S }";
     	double len = 25;
@@ -35,7 +35,7 @@ class TestJunit {
         assertEquals( expectedResult, parcel.toString());
     }
 
-    @Test
+    /*@Test
     void dbValidTest() {
     	DBConn conn = new DBConn();
 
@@ -43,9 +43,9 @@ class TestJunit {
     	String res = conn.getSize(71.0f);
 
     	assertEquals( expectedResult, res);
-    }
+    }*/
 
-    @Test
+    /*@Test
     void postSizeTest() {
     	String expectedResult = "{\"length\":25.0,\"width\":24.0,\"depth\":7.3,\"cat\":\"XL\"}";
     	REST meRes = new REST();
@@ -53,7 +53,7 @@ class TestJunit {
     	String res = meRes.size("{ length: 25.0, width: 24.0, depth: 7.3, cat: ' ' }").getEntity().toString();
 
     	assertEquals(expectedResult, res);
-    }
+    }*/
 
 
     /*@Test
