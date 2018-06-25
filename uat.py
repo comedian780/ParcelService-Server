@@ -17,7 +17,7 @@ class UntitledTestCase(unittest.TestCase):
         self.base_url = "https://www.katalon.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-        self.vm_url = "www.allgaeu-parcel-service.de"
+        self.vm_url = "http://www.allgaeu-parcel-service.de"
         self.correct_result = "XS"
 
     def test_untitled_test_case(self):
