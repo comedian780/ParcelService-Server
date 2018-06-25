@@ -27,7 +27,7 @@ node {
               sh "docker rmi -f parcelservice-server"
           }
           //Build new container with image parcelservice-server
-          sh "docker build -t parcelservice-server ."
+          sh "docker build -t parcelservice-server:test ."
       }
       else
       {
