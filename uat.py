@@ -17,7 +17,7 @@ class UntitledTestCase(unittest.TestCase):
         self.base_url = "https://www.katalon.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-        self.vm_url = "http://192.168.56.101"
+        self.vm_url = "www.allgaeu-parcel-service.de"
         self.correct_result = "XS"
 
     def test_untitled_test_case(self):
@@ -32,7 +32,7 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_id("depth").send_keys("3")
         driver.find_element_by_id("sendParcel").click()
         time.sleep(5)
-        result = driver.find_element_by_id("parcelRes").text.split()[1]
+        result = driver.find_element_by_id("parcelRes").text.split(" ")[1]
         if(result != self.correct_result):
             exit(1)
 
