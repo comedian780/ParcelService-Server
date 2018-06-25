@@ -18,7 +18,7 @@ class UntitledTestCase(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
         self.vm_url = "http://www.allgaeu-parcel-service.de"
-        self.correct_result = "XS"
+        self.correct_result = " XS"
 
     def test_untitled_test_case(self):
         driver = self.driver
@@ -31,9 +31,8 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_id("depth").clear()
         driver.find_element_by_id("depth").send_keys("3")
         driver.find_element_by_id("sendParcel").click()
-        time.sleep(5)
-        print(driver.find_element_by_id("parcelRes").text)
-        result = driver.find_element_by_id("parcelRes").text.split()[1]
+        time.sleep(15)
+        result = driver.find_element_by_id("parcelRes").text.split(':')[1]
         if(result != self.correct_result):
             exit(1)
 
