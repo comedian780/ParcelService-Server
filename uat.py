@@ -31,8 +31,8 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_id("depth").clear()
         driver.find_element_by_id("depth").send_keys("3")
         driver.find_element_by_id("sendParcel").click()
-        time.sleep(15)
-        result = driver.find_element_by_id("parcelRes").text.split(" ")[1]
+        time.sleep(10)
+        result = driver.find_element_by_id("parcelRes").text.split()[1]
         if(result != self.correct_result):
             exit(1)
 
