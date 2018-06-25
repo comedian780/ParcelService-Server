@@ -12,8 +12,7 @@ angular.
 			'<p>Länge:<br/><input id="length" class="w3-input" type="text" style="width:100%" ng-model="$ctrl.parcel.size.length">'+
 			'<p>Breite:<br/><input id="width" class="w3-input" type="text" style="width:100%" ng-model="$ctrl.parcel.size.width">'+
 			'<p>Tiefe:<br/><input id="depth" class="w3-input" type="text" style="width:100%" ng-model="$ctrl.parcel.size.depth">'+
-			'<br/><p id="sendParcel" class="w3-teal w3-button" ng-click="$ctrl.calcSize($ctrl.parcel)" style="cursor: pointer;">'+
-      'Größe berechnen</p> <p>Paketgröße:</p><p id="parcelRes">{{$ctrl.parcel.size.cat}}</p>'+
+			'<br/><p id="sendParcel" class="w3-teal w3-button" ng-click="$ctrl.calcSize($ctrl.parcel)" style="cursor: pointer;">Größe berechnen</p> <p id="parcelRes">Paketgröße: {{$ctrl.parcel.size.cat}}</p>'+
 			'</form>'+
 		'</div>'+
 	'</div>' ,
