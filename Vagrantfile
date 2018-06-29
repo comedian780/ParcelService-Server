@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
    SHELL
 
 config.vm.provision "shell", inline: <<-SHELL
-sudo cp dockerconf/daemon.json /etc/docker/
+ echo '{"insecure-registries" : ["192.168.56.100:5000"]}' | sudo tee /etc/docker/daemon.json
 sudo service docker restart
    SHELL
    #config.vm.provision "shell", run: "always", inline: <<-SHELL
