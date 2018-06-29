@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
    SHELL
 
 config.vm.provision "shell", inline: <<-SHELL
- echo '{"insecure-registries" : ["192.168.56.100:5000"]}' | sudo tee /etc/docker/daemon.json
+ echo '{"insecure-registries" : ["asset.allgaeu-parcel-service.de:5000"]}' | sudo tee /etc/docker/daemon.json
  echo 'nameserver 192.168.56.88' | sudo tee /etc/resolvconf/resolv.conf.d/head
 sudo service docker restart
    SHELL
