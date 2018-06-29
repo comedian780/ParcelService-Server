@@ -23,6 +23,10 @@ Vagrant.configure(2) do |config|
      docker network create --driver bridge ParcelService
    SHELL
 
+config.vm.provision "shell", inline: <<-SHELL
+sudo cp ./dockerconf/daemon.json /etc/docker/daemon.json
+sudo service docker restart
+   SHELL
    #config.vm.provision "shell", run: "always", inline: <<-SHELL
    #wget 192.168.56.100/images/frontend.tar
    #wget 192.168.56.100/images/server.tar
