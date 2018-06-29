@@ -45,8 +45,6 @@ node {
    }
    stage('Build and Start Testserver')
    {
-      sh 'vagrant box update'
-      sh 'vagrant box prune --force'
       sh "vagrant up"
    }
    stage('Integration-Test')
