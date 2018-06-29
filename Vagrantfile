@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
    SHELL
 
 config.vm.provision "shell", inline: <<-SHELL
-sudo cp /dockerconf/daemon.json /etc/docker/daemon.json
+sudo cp dockerconf/daemon.json /etc/docker/
 sudo service docker restart
    SHELL
    #config.vm.provision "shell", run: "always", inline: <<-SHELL
