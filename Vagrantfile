@@ -48,5 +48,6 @@ Vagrant.configure(2) do |config|
    config.vm.provision "shell", run: "always", inline: <<-SHELL
    wget 192.168.56.100/script/startEnv.sh
    sh startEnv.sh
+   rm startEnv.sh
    SHELL
 end
