@@ -75,4 +75,8 @@ node {
   {
     input 'Build Working ?'
   }
+  stage('Deploy to Productive Server')
+  {
+    sh "sshpass -p 'beprody' ssh prod@prod.allgaeu-parcel-service.de 'wget asset.allgaeu-parcel-service.de/script/switchState.sh | sh switchState.sh'"
+  }
 }
