@@ -39,6 +39,7 @@ public class REST
 		         "GET, POST, PUT, DELETE, OPTIONS, HEAD").build();
   }
   @POST
+frontend firstbalance
   public Response size(String json)
   {
 	  Gson gs = new Gson();
@@ -59,7 +60,7 @@ public class REST
 		  parcel.length=parcel.depth;
 		  parcel.depth=tmp;
 	  }
-	  double gurt = parcel.length+2*parcel.width+2*parcel.depth;
+	  double gurt = parcel.length+3*parcel.width+2*parcel.depth;
     DBConn con = new DBConn();
 	  parcel.cat=con.getSize(gurt);
 
