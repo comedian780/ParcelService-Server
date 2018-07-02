@@ -39,7 +39,6 @@ public class REST
 		         "GET, POST, PUT, DELETE, OPTIONS, HEAD").build();
   }
   @POST
-frontend firstbalance
   public Response size(String json)
   {
 	  Gson gs = new Gson();
