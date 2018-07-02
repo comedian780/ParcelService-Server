@@ -42,7 +42,7 @@ public class REST
   public Response size(String json)
   {
 	  Gson gs = new Gson();
-	  Parcel parcel = 0;//gs.fromJson(json,Parcel.class);
+	  Parcel parcel = gs.fromJson(json,Parcel.class);
 	  if(parcel.length>parcel.width&&parcel.length>parcel.depth)
 	  {
 
